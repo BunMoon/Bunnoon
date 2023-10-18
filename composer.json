@@ -1,0 +1,24 @@
+{
+    "name": "bunmoon/bunnoon",
+    "description": "Anime website streaming platform.",
+    "type": "project",
+    "license": "ISC",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Phuchon Chueapong",
+            "email": "145848811+BunMoon@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
+    },
+    "require": {}
+}
