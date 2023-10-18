@@ -20,5 +20,7 @@
             "php": "8.2"
         }
     },
-    "require": {}
+    "require": {
+        "twig/twig": "^3.0"
+    }
 }
