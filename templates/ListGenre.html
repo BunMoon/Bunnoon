@@ -2,4 +2,9 @@
 
 {% block content %}
 <h1>List genre works!</h1>
+{% for genre in genres %}
+<a href="?id={{ genre.title }}" title="{{ genre.enName }} | {{ genre.thName }}">
+    <p>{{ genre.enName }}</p>
+</a>
+{% endfor %}
 {% endblock %}
