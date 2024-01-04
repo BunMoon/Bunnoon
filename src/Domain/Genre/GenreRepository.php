@@ -6,4 +6,10 @@ namespace App\Domain\Genre;
 
 interface GenreRepository
 {
+    /**
+     * List all genre records.
+     * 
+     * @return Genre[]
+     */
+    public function find(): array;
 }
