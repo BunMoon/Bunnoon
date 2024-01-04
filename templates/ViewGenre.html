@@ -3,4 +3,9 @@
 {% block content %}
 <h1>View genre works!</h1>
 <h2>{{ genre.enName }} {{ genre.thName }}</h2>
+{% for anime in animes %}
+<a href="animes.php?id={{ anime.title }}" title="{{ anime.enName }} | {{ anime.thName }}">
+  <p>{{ anime.enName }}</p>
+</a>
+{% endfor %}
 {% endblock %}
