@@ -27,6 +27,6 @@ class Genre
 
     public function title(): string
     {
-        return $this->record['title'];
+        return urlencode($this->record['title']);
     }
 }
