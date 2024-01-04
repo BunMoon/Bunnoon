@@ -30,6 +30,21 @@
     url("/fonts/mitr-bold.ttf") format("truetype");
 }
 
+:root {
+  --bn-primary-bgColor: #f8f8f8;
+  --bn-primary-textColor: #000;
+  --bn-second-bgColor: #fff;
+}
+
 body {
   font-family: "Mitr", sans-serif;
+  background-color: var(--bn-primary-bgColor, #f8f8f8);
+  color: var(--bn-primary-textColor, #000);
+}
+
+.header-container {
+  padding: 1em 0.6em;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bn-second-bgColor, #fff);
 }
