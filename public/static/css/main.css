@@ -71,3 +71,9 @@ body {
   color: #444;
   border-color: #888;
 }
+
+.footer-container {
+  margin-top: 54px;
+  display: flex;
+  background-color: var(--bn-second-bgColor, #fff);
+}
