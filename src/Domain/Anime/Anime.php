@@ -25,6 +25,11 @@ class Anime
         return $this->record['thName'];
     }
 
+    public function title(): string
+    {
+        return urlencode($this->record['title']);
+    }
+
     public function season(): int
     {
         return $this->record['season'];
