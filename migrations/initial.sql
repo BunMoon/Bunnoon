@@ -2,7 +2,32 @@
 CREATE DATABASE bunnoon CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- create genres table
-CREATE TABLE `bunnoon`.`genres` (`id` INT NOT NULL AUTO_INCREMENT , `enName` VARCHAR(50) NOT NULL , `thName` VARCHAR(50) NOT NULL , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`), UNIQUE (`title`)) ENGINE = InnoDB;
+CREATE TABLE `bunnoon`.`genres` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `enName` VARCHAR( 50 ) NOT NULL,
+    `thName` VARCHAR( 50 ) NOT NULL,
+    `title` VARCHAR( 50 ) NOT NULL,
+    PRIMARY KEY ( `id` ),
+    UNIQUE ( `title` )
+) ENGINE = InnoDB;
+
+-- create animes table
+CREATE TABLE `bunnoon`.`animes` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `enName` VARCHAR( 50 ) NOT NULL,
+    `thName` VARCHAR( 50 ) NOT NULL,
+    `title` VARCHAR( 50 ) NOT NULL,
+    `season` INT NOT NULL,
+    `genreId` INT,
+    PRIMARY KEY ( `id` ),
+    UNIQUE ( `title` )
+) ENGINE = InnoDB;
+
+-- create foreign key - genre to animes (OneToMany)
+ALTER TABLE `bunnoon`.`animes` ADD CONSTRAINT `GenreToAnimes`
+FOREIGN KEY ( `genreId` ) REFERENCES `genres` ( `id` )
+ON DELETE SET NULL
+ON UPDATE NO ACTION;
 
 -- initial genre records
 INSERT INTO `bunnoon`.`genres` (enName, thName, title)
