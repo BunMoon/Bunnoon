@@ -48,3 +48,26 @@ body {
   justify-content: space-between;
   background-color: var(--bn-second-bgColor, #fff);
 }
+
+.navbar-container {
+  display: flex;
+  overflow-x: hidden;
+  background-color: var(--bn-second-bgColor, #fff);
+}
+
+.nb-link {
+  text-decoration: none;
+}
+
+.nb-link p {
+  margin: 0 0.6rem;
+  min-width: max-content;
+  font: 500 0.8rem/1.8rem "Mitr", sans-serif;
+  color: #888;
+  border-bottom: 2px solid transparent;
+}
+
+.nb-link.\!onsite p {
+  color: #444;
+  border-color: #888;
+}
