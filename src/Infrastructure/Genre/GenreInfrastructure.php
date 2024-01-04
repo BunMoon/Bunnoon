@@ -36,6 +36,6 @@ class GenreInfrastructure extends Infrastructure implements GenreRepository
         if (count($genre) == 0) {
             throw new GenreNotFoundException();
         }
-        return new Genre($genre);
+        return new Genre($genre[0]);
     }
 }
