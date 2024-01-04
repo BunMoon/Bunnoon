@@ -1,0 +1,35 @@
+@import url("normalize.css");
+
+/* mitr-regular - latin_thai */
+@font-face {
+  font-display: swap;
+  font-family: "Mitr";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/mitr-regular.woff2") format("woff2"),
+    url("/fonts/mitr-regular.ttf") format("truetype");
+}
+
+/* mitr-medium - latin_thai */
+@font-face {
+  font-display: swap;
+  font-family: "Mitr";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/mitr-medium.woff2") format("woff2"),
+    url("/fonts/mitr-medium.ttf") format("truetype");
+}
+
+/* mitr-bold - latin_thai */
+@font-face {
+  font-display: swap;
+  font-family: "Mitr";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/mitr-bold.woff2") format("woff2"),
+    url("/fonts/mitr-bold.ttf") format("truetype");
+}
+
+body {
+  font-family: "Mitr", sans-serif;
+}
