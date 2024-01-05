@@ -4,4 +4,9 @@
 <h1>View anime works!</h1>
 <h2>{{ anime.enName }} {{ anime.thName }}</h2>
 <h3>Season {{ anime.season }}</h3>
+{% for episode in episodes %}
+<a href="animes.php?id={{ anime.title }}&episode={{ episode.episode }}">
+  <p>Episode {{ episode.episode }}</p>
+</a>
+{% endfor %}
 {% endblock %}
