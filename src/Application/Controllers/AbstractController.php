@@ -11,6 +11,7 @@ abstract class AbstractController
 {
     public function __invoke()
     {
+        date_default_timezone_set('Asia/Bangkok');
         $this->view();
     }
 
