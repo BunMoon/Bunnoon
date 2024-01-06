@@ -1,6 +1,21 @@
 -- create database
 CREATE DATABASE bunnoon CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
+-- create users table
+CREATE TABLE `bunnoon`.`users` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT NULL,
+    `deletedAt` TIMESTAMP DEFAULT NULL,
+    `email` VARCHAR( 100 ) NOT NULL,
+    `username` VARCHAR( 24 ) NOT NULL,
+    `password` VARCHAR( 128 ) NOT NULL,
+    `name` VARCHAR ( 50 ) NOT NULL,
+    PRIMARY KEY ( `id` ),
+    UNIQUE ( `email` ),
+    UNIQUE ( `username` )
+) ENGINE = InnoDB;
+
 -- create genres table
 CREATE TABLE `bunnoon`.`genres` (
     `id` INT NOT NULL AUTO_INCREMENT,
