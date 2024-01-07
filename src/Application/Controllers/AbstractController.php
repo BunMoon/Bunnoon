@@ -14,11 +14,15 @@ abstract class AbstractController
     protected Authentication $authentication;
     protected Authorization $authorization;
 
-    public function __invoke()
+    public function __construct()
     {
         date_default_timezone_set('Asia/Bangkok');
         $this->authentication = new Authentication();
         $this->authorization = new Authorization();
+    }
+
+    public function __invoke()
+    {
         $this->view();
     }
 
