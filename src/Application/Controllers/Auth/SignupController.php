@@ -16,7 +16,7 @@ class SignupController extends AbstractAuthController
      */
     protected function view(): void
     {
-        $this->render('Signup.html');
+        $this->render('Signup.html', ['csrf_token' => $this->csrf->token]);
     }
 
     /**
