@@ -4,17 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Controllers\Auth;
 
-use App\Application\Controllers\AbstractController;
-use App\Domain\User\UserRepository;
-use App\Infrastructure\User\UserInfrastructure;
-
-class SignupController extends AbstractController
+class SignupController extends AbstractAuthController
 {
-    private UserRepository $userRepository;
-
     public function __construct()
     {
-        $this->userRepository = new UserInfrastructure();
+        parent::__construct();
     }
 
     /**
@@ -22,17 +16,15 @@ class SignupController extends AbstractController
      */
     protected function view(): void
     {
-        if (isset($_POST['request'])) {
-            $this->userRepository->save($_POST['email'], $_POST['username'], $_POST['password']);
-            $this->redirect();
-            return;
-        }
         $this->render('Signup.html');
     }
 
-    private function redirect(): void
+    /**
+     * {@inheritDoc}
+     */
+    protected function action(): void
     {
-        $url = $_GET['continue'] ?? '/';
-        header("Location: $url");
+        $this->userRepository->save($_POST['email'], $_POST['username'], $_POST['password']);
+        $this->redirect();
     }
 }
