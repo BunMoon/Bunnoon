@@ -14,6 +14,7 @@ abstract class AbstractAuthController extends AbstractController
 
     public function __construct()
     {
+        parent::__construct();
         $this->userRepository = new UserInfrastructure();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['request'])) {
