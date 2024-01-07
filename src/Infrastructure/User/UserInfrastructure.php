@@ -32,7 +32,7 @@ class UserInfrastructure extends Infrastructure implements UserRepository
     {
         $user = $this->db->query(
             "SELECT * FROM users WHERE username=?",
-            [$username]
+            [strtolower($username)]
         );
         if (count($user) == 0) {
             throw new UserNotFoundException();
