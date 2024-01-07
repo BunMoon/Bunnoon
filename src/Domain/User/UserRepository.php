@@ -10,4 +10,12 @@ interface UserRepository
      * Create user record.
      */
     public function save(string $email, string $username, string $password): void;
+
+    /**
+     * Find one user record by username.
+     * 
+     * @return User
+     * @throws UserNotFoundException
+     */
+    public function findOneByUsername(string $username): User;
 }
