@@ -16,6 +16,23 @@ CREATE TABLE `bunnoon`.`users` (
     UNIQUE ( `username` )
 ) ENGINE = InnoDB;
 
+-- create sessions table
+CREATE TABLE `bunnoon`.`sessions` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `deletedAt` TIMESTAMP DEFAULT NULL,
+    `token` VARCHAR ( 25 ) NOT NULL,
+    `userId` INT NOT NULL,
+    PRIMARY KEY ( `id` ),
+    UNIQUE ( `token` )
+) ENGINE = InnoDB;
+
+-- create foreign key - sessions to user (ManyToOne)
+ALTER TABLE `bunnoon`.`sessions` ADD CONSTRAINT `SessionsToUser`
+FOREIGN KEY ( `userId` ) REFERENCES `users` ( `id` )
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
 -- create genres table
 CREATE TABLE `bunnoon`.`genres` (
     `id` INT NOT NULL AUTO_INCREMENT,
