@@ -17,6 +17,13 @@ abstract class AbstractSettingController extends AbstractController
     public function __construct()
     {
         parent::__construct();
+
+        // Client does not login
+        if (!$this->authentication->isAuthenticated) {
+            header('Location: /signin.php?continue=' . urlencode($_SERVER['REQUEST_URI']));
+            return;
+        }
+
         $this->csrf = new CSRF();
         $this->userRepository = new UserInfrastructure();
 
