@@ -30,6 +30,9 @@ abstract class AbstractController
             // session middlewares
             session_start();
             $this->session->regeneration();
+
+            // authorization middlewares
+            $this->authorization->searchUserSession();
         }
         $this->view();
     }
