@@ -21,7 +21,7 @@ class CSRF
                 'expires' => time() + 31536000,
                 'path' => '/',
                 'domain' => '',
-                'secure' => false,
+                'secure' => true,
                 'httponly' => true,
                 'samesite' => 'Strict',
             ]);

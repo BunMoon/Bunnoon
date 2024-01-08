@@ -16,6 +16,7 @@ class Session
             'path' => '/',
             'secure' => true,
             'httponly' => true,
+            'samesite' => 'Strict',
         ]);
         session_name('SSID');
     }
