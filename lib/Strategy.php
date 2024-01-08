@@ -6,9 +6,9 @@ namespace Library;
 
 class Strategy
 {
-    const STRATEGY_DEFAULT = 0;
+    const STRATEGY_PASSWORD = 0;
 
-    protected function defaultStrategy(string $password, string $hash): bool
+    protected function passwordStrategy(string $password, string $hash): bool
     {
         return password_verify($password, $hash);
     }

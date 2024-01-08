@@ -18,8 +18,8 @@ class Authentication extends Strategy
     public function authenticate(array $value, int $strategy = 0): bool
     {
         switch ($strategy) {
-            case self::STRATEGY_DEFAULT:
-                return $this->defaultStrategy($value[0], $value[1]);
+            case self::STRATEGY_PASSWORD:
+                return $this->passwordStrategy($value[0], $value[1]);
             default:
                 return false;
         }
