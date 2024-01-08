@@ -25,5 +25,13 @@ class ProfileSettingController extends AbstractSettingController
     protected function action(): void
     {
         print_r($_POST);
+        if (isset($_POST['profile'])) {
+            $this->profile();
+        }
+    }
+
+    private function profile(): void
+    {
+        echo 'Profile updated!';
     }
 }
