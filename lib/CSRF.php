@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Library;
 
 use Ramsey\Uuid\Uuid;
+use Utilities\Random;
 
 class CSRF
 {
@@ -15,7 +16,7 @@ class CSRF
     public function __construct()
     {
         if (!isset($_COOKIE['CSRF_TOKEN'])) {
-            $secret = Uuid::uuid4()->toString();
+            $secret = Random::uniqid();
             setcookie('CSRF_TOKEN', $secret, [
                 'expires' => time() + 31536000,
                 'path' => '/',

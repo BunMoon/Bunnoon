@@ -13,12 +13,12 @@ class Random
      * 
      * @return string
      */
-    public static function uniqid(int $length): string
+    public static function uniqid(int $length = 25): string
     {
         if (function_exists('random_bytes')) {
-            $bytes = random_bytes(ceil($length / 2));
+            $bytes = random_bytes(intval(ceil($length / 2)));
         } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $bytes = openssl_random_pseudo_bytes(ceil($length / 2));
+            $bytes = openssl_random_pseudo_bytes(intval(ceil($length / 2)));
         } else {
             throw new Exception('no cryptographically secure random function available');
         }
