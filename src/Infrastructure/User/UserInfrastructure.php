@@ -28,6 +28,21 @@ class UserInfrastructure extends Infrastructure implements UserRepository
     /**
      * {@inheritDoc}
      */
+    public function findOneById(int $userId): User
+    {
+        $user = $this->db->query(
+            "SELECT * FROM users WHERE id=?",
+            [$userId]
+        );
+        if (count($user) == 0) {
+            throw new UserNotFoundException();
+        }
+        return new User($user[0]);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function findOneByUsername(string $username): User
     {
         $user = $this->db->query(
