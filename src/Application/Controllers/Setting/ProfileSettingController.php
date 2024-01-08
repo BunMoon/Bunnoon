@@ -16,7 +16,7 @@ class ProfileSettingController extends AbstractSettingController
      */
     protected function view(): void
     {
-        $this->render('SettingProfile.html');
+        $this->render('SettingProfile.html', ['csrf_token' => $this->csrf->token]);
     }
 
     /**
