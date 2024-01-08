@@ -10,6 +10,11 @@ class User
     {
     }
 
+    public function id(): int
+    {
+        return $this->record['id'];
+    }
+
     public function email(): string
     {
         return $this->record['email'];
