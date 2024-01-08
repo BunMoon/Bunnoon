@@ -20,7 +20,7 @@ abstract class AbstractSettingController extends AbstractController
         $this->csrf = new CSRF();
         $this->userRepository = new UserInfrastructure();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['request'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Csrf validation
             if (!$this->csrf->verify($_POST['csrf_token'])) {
                 echo 'Csrf validation was failed!';
