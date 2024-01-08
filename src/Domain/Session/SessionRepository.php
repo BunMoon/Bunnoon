@@ -6,4 +6,8 @@ namespace App\Domain\Session;
 
 interface SessionRepository
 {
+    /**
+     * Create session record.
+     */
+    public function save(string $token, int $userId): void;
 }
