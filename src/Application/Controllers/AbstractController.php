@@ -6,23 +6,31 @@ namespace App\Application\Controllers;
 
 use App\Application\Middlewares\Authentication;
 use App\Application\Middlewares\Authorization;
+use App\Application\Middlewares\Session;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 abstract class AbstractController
 {
+    protected Session $session;
     protected Authentication $authentication;
     protected Authorization $authorization;
 
     public function __construct()
     {
         date_default_timezone_set('Asia/Bangkok');
+        $this->session = new Session();
         $this->authentication = new Authentication();
         $this->authorization = new Authorization();
     }
 
     public function __invoke()
     {
+        if ($this->authentication->isAuthenticated) {
+            // session middlewares
+            session_start();
+            $this->session->regeneration();
+        }
         $this->view();
     }
 
